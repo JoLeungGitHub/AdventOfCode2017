@@ -49,7 +49,7 @@ input: Day7input.txt
 
 Your puzzle answer was mwzaxaj.
 '''
-def P1():
+def recursiveCircusP1():
 	filearray = []
 	file = open("Day7input.txt", "r")
 	for line in file:
@@ -97,7 +97,7 @@ input: Day7input.txt
 
 Your puzzle answer was 1219.
 '''
-def P2():
+def recursiveCircusP2():
 	filearray = []
 	file = open("Day7input.txt", "r")
 	for line in file:
@@ -169,5 +169,5 @@ def findInbalance(discs, d):
 				return findInbalance(discs, disc)
 
 if __name__ == '__main__':
-    print(P1())
-    print(P2())
+    print(recursiveCircusP1())
+    print(recursiveCircusP2())
