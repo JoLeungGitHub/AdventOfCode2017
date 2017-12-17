@@ -27,7 +27,7 @@ In this example, 8108 squares are used across the entire 128x128 grid.
 
 Given your actual key string, how many squares are used?
 
-input: jzgqcdpd
+Your puzzle input was jzgqcdpd.
 
 Your puzzle answer was 8074.
 '''
@@ -129,7 +129,7 @@ Of particular interest is the region marked 8; while it does not appear contiguo
 
 How many regions are present given your key string?
 
-input: jzgqcdpd
+Your puzzle input was jzgqcdpd.
 
 Your puzzle answer was 1212.
 '''

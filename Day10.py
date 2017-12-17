@@ -100,7 +100,8 @@ AoC 2017 becomes 33efeb34ea91902bb2f59c9920caa6cd.
 1,2,4 becomes 63960835bcdc130f0b66d7ff4f6a5a8e.
 Treating your puzzle input as a string of ASCII characters, what is the Knot Hash of your puzzle input? Ignore any leading or trailing whitespace you might encounter.
 
-input: 70,66,255,2,48,0,54,48,80,141,244,254,160,108,1,41
+input: 
+70,66,255,2,48,0,54,48,80,141,244,254,160,108,1,41
 
 Your puzzle answer was decdf7d377879877173b7f2fb131cf1b.
 '''

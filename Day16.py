@@ -41,7 +41,6 @@ def permutationPromenade1():
 			programs[one], programs[two] = programs[two], programs[one]
 	return "".join(programs)
 
-
 def oneCycle(n, m):
 	programs = n
 	for move in m:
@@ -84,7 +83,7 @@ def permutationPromenadeP2():
 	for zzz in range(1000000000):
 		oneCycle(programs, moves)
 		if programs in cycles:
-			return "".join(cycles[(1000000000 % len(cycles))-1])
+			return "".join(cycles[(1000000000 % len(cycles))-1]) #-1 to take into account the first cycle that was already added.
 		cycles.append(programs[:])
 	return "".join(programs)
 

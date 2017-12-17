@@ -23,7 +23,8 @@ At this point, we've reached a state we've seen before: 2 4 1 2 was already seen
 
 Given the initial block counts in your puzzle input, how many redistribution cycles must be completed before a configuration is produced that has been seen before?
 
-input: 4	10	4	1	8	4	9	14	5	1	14	15	0	15	3	5
+input:
+4	10	4	1	8	4	9	14	5	1	14	15	0	15	3	5
 
 Your puzzle answer was 12841.
 '''
