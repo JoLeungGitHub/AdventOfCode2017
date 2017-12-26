@@ -50,25 +50,26 @@ def streamProcessingP1():
 	file = open("Day9input.txt", "r")
 	for line in file:
 		filearray = line.strip("\n")
+
 	score = 0
 	total = 0
 	garbage = False
-	ch = 0
-	while ch < len(filearray):
+	index = 0
+	while index < len(filearray):
 		if not garbage:
-			if filearray[ch] == "{":
+			if filearray[index] == "{":
 				score += 1
-			elif filearray[ch] == "}":
+			elif filearray[index] == "}":
 				total += score
 				score -= 1
-			elif filearray[ch] == "<":
+			elif filearray[index] == "<":
 				garbage = True
 		else:
-			if filearray[ch] == "!":
-				ch += 1
-			elif filearray[ch] == ">":
+			if filearray[index] == "!":
+				index += 1
+			elif filearray[index] == ">":
 				garbage = False
-		ch += 1
+		index += 1
 	return total
 
 '''
@@ -95,21 +96,22 @@ def streamProcessingP2():
 	file = open("Day9input.txt", "r")
 	for line in file:
 		filearray = line.strip("\n")
+
 	total = 0
 	garbage = False
-	ch = 0
-	while ch < len(filearray):
+	index = 0
+	while index < len(filearray):
 		if not garbage:
-			if filearray[ch] == "<":
+			if filearray[index] == "<":
 				garbage = True
 		else:
-			if filearray[ch] == "!":
-				ch += 1
-			elif filearray[ch] == ">":
+			if filearray[index] == "!":
+				index += 1
+			elif filearray[index] == ">":
 				garbage = False
 			else:
 				total += 1
-		ch += 1
+		index += 1
 	return total
 
 if __name__ == '__main__':

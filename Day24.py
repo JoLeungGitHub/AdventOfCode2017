@@ -63,26 +63,6 @@ def electromagneticMoatP1():
 		strengths.append(total)
 	return max(strengths)
 
-def possible(ports, looking, cur):
-	available = []
-	for link in ports:
-		if looking in link:
-			available.append(link)
-
-	if len(available) == 0:
-		return [cur]
-
-	returned = []
-	for thing in available:
-		tocheck = ports[:]
-		tocheck.remove(thing)
-
-		nextup = thing[:]
-		nextup.remove(looking)
-
-		returned += possible(tocheck, nextup[0],cur + [thing])
-	return returned
-
 '''
 --- Part Two ---
 The bridge you've built isn't long enough; you can't jump the rest of the way.
@@ -119,6 +99,27 @@ def electromagneticMoatP2():
 			for link in p:
 				strength = strength + link[0] + link[1]
 	return strength
+
+#-------------------------------------------------------------------#
+def possible(ports, looking, cur):
+	available = []
+	for link in ports:
+		if looking in link:
+			available.append(link)
+
+	if len(available) == 0:
+		return [cur]
+
+	returned = []
+	for thing in available:
+		tocheck = ports[:]
+		tocheck.remove(thing)
+
+		nextup = thing[:]
+		nextup.remove(looking)
+
+		returned += possible(tocheck, nextup[0],cur + [thing])
+	return returned
 
 if __name__ == '__main__':
     print(electromagneticMoatP1())

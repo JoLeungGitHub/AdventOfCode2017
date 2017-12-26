@@ -36,10 +36,9 @@ def twistyTrampolinesP1():
 	for line in file:
 		filearray.append(int(line.strip("\n")))
 
-	mazelen = len(filearray)
 	steps = 0
 	i = 0
-	while mazelen > i:
+	while i < len(filearray):
 		change = filearray[i]
 		filearray[i] += 1
 		i += change
@@ -65,10 +64,9 @@ def twistyTrampolinesP2():
 	for line in file:
 		filearray.append(int(line.strip("\n")))
 
-	mazelen = len(filearray)
 	steps = 0
 	i = 0
-	while mazelen > i:
+	while i < len(filearray):
 		change = filearray[i]
 		if change >= 3:
 			filearray[i] -= 1
@@ -77,3 +75,7 @@ def twistyTrampolinesP2():
 		i += change
 		steps += 1
 	return steps
+
+if __name__ == '__main__':
+    print(twistyTrampolinesP1())
+    print(twistyTrampolinesP2())

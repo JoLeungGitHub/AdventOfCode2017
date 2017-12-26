@@ -96,6 +96,7 @@ def sporificaVirusP1():
 	for line in file:
 		filearray.append(line.strip("\n"))
 
+	#add padding of 500 elements on all sides
 	grid = []
 	for _ in range(500):
 		grid.append('.'*1025)
@@ -256,6 +257,7 @@ def sporificaVirusP2():
 	for line in file:
 		filearray.append(line.strip("\n"))
 
+	#add padding of 500 elements on all sides
 	grid = []
 	for _ in range(500):
 		grid.append('.'*1025)

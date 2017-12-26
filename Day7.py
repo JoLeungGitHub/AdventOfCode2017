@@ -141,6 +141,8 @@ def recursiveCircusP2():
 
 	return itsTotal - totalInside - diff
 
+#-------------------------------------------------------------------#
+
 def totalWeight(discs, d):
 	if len(discs[d][1]) == 0:
 		return discs[d][0]

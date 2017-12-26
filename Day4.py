@@ -28,7 +28,8 @@ def highEntropyPassphrasesP1():
 		double = False
 		for word in l.split():
 			if word in words:
-				double = True;
+				double = True
+				break
 			else:
 				words.append(word)
 		if not(double):
@@ -64,11 +65,15 @@ def highEntropyPassphrasesP2():
 		words = []
 		double = False
 		for word in l.split():
-			for string in words:
-				if sorted(word) == sorted(string):
-					double = True
+			if sorted(word) in words:
+				double = True
+				break
 			else:
-				words.append(word)
+				words.append(sorted(word))
 		if not(double):
 			valid += 1
 	return valid
+
+if __name__ == '__main__':
+    print(highEntropyPassphrasesP1())
+    print(highEntropyPassphrasesP2())

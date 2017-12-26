@@ -225,4 +225,4 @@ def duetP2():
 
 if __name__ == '__main__':
     duetprint(P1())
-    #duetprint(P2()) #I BROKE IT
+    #duetprint(P2()) Part 2 does not function.

@@ -163,7 +163,8 @@ input: Day13input.txt
 
 Your puzzle answer was 1624.
 '''
-def packetScannersP1(firewall):
+def packetScannersP1():
+	firewall = buildWall()
 	severity = 0
 	i = 0
 	while i != 89:
@@ -173,66 +174,6 @@ def packetScannersP1(firewall):
 		nextSecond(firewall)
 		i += 1
 	return severity
-
-def buildWall():
-	filearray = []
-	file = open("Day13input.txt", "r")
-	for line in file:
-		filearray.append(line.strip("\n"))
-
-	firewall = {}
-	for line in filearray:
-		layer = int(line[:line.find(":")])
-		depth = int(line[line.find(" ")+1:])
-
-		firewall[layer] = []
-		i = -1
-		while i < depth:
-			if i == -1:
-				firewall[layer].append("d")
-			elif i == 0:
-				firewall[layer].append(True)
-			else:
-				firewall[layer].append(False)
-			i += 1
-	return firewall
-
-def nextSecond(firewall):
-	for layer in firewall:
-		state = firewall[layer][0]
-		depth = len(firewall[layer])
-		i = 1
-		if state == "d":
-			previous = False
-			while i < depth:
-				if firewall[layer][i]:
-					firewall[layer][i] = False
-					previous = True
-				elif previous:
-					firewall[layer][i] = True
-					if i == depth-1:
-						firewall[layer][0] = "u"
-					break;
-				i += 1
-		else: #state == "u"
-			while i < depth:
-				if firewall[layer][i]:
-					firewall[layer][i] = False
-					firewall[layer][i-1] = True
-					if i-1 == 1:
-						firewall[layer][0] = "d"
-					break;
-				i += 1
-
-def getCaught(firewall):
-	i = 0
-	while i != 89:
-		if i in firewall:
-			if firewall[i][1]:
-				return True
-		nextSecond(firewall)
-		i += 1
-	return False
 
 '''
 --- Part Two ---
@@ -355,7 +296,7 @@ input: Day13input.txt
 Your puzzle answer was 3923436.
 '''
 def packetScannersP2():
-	delay = 3923436
+	delay = 3923436 #usually would start at 1, but it would take forever (then eventually reach 3923436)
 	while True:
 		firewall = buildWall()
 		for run in range(delay):
@@ -364,6 +305,67 @@ def packetScannersP2():
 			return delay
 		delay += 1
 
+#-------------------------------------------------------------------#
+def buildWall():
+	filearray = []
+	file = open("Day13input.txt", "r")
+	for line in file:
+		filearray.append(line.strip("\n"))
+
+	firewall = {}
+	for line in filearray:
+		layer = int(line[:line.find(":")])
+		depth = int(line[line.find(" ")+1:])
+
+		firewall[layer] = []
+		i = -1
+		while i < depth:
+			if i == -1:
+				firewall[layer].append("d")
+			elif i == 0:
+				firewall[layer].append(True)
+			else:
+				firewall[layer].append(False)
+			i += 1
+	return firewall
+
+def nextSecond(firewall):
+	for layer in firewall:
+		state = firewall[layer][0]
+		depth = len(firewall[layer])
+		i = 1
+		if state == "d":
+			previous = False
+			while i < depth:
+				if firewall[layer][i]:
+					firewall[layer][i] = False
+					previous = True
+				elif previous:
+					firewall[layer][i] = True
+					if i == depth-1:
+						firewall[layer][0] = "u"
+					break;
+				i += 1
+		else: #state == "u"
+			while i < depth:
+				if firewall[layer][i]:
+					firewall[layer][i] = False
+					firewall[layer][i-1] = True
+					if i-1 == 1:
+						firewall[layer][0] = "d"
+					break;
+				i += 1
+
+def getCaught(firewall):
+	i = 0
+	while i != 89:
+		if i in firewall:
+			if firewall[i][1]:
+				return True
+		nextSecond(firewall)
+		i += 1
+	return False
+
 if __name__ == '__main__':
-    print(packetScannersP1(buildWall()))
+    print(packetScannersP1())
     print(packetScannersP2())

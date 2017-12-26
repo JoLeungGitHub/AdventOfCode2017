@@ -20,11 +20,11 @@ Data from square 23 is carried only 2 steps: up twice.
 Data from square 1024 must be carried 31 steps.
 How many steps are required to carry the data from the square identified in your puzzle input all the way to the access port?
 
-Your puzzle input is 325489.
+input: Day3input.txt
 
 Your puzzle answer was 552.
 '''
-def spiralMemoryP1(n):
+def spiralMemoryP1(n=325489):
 	#this function only works if the input is on the same line as the found layer, so k**2 - n < 1 + k*2. My input satisfies this so I got lucky, function does not work for most inputs because of this limitation.
 	#to solve for all values, just repeat this sequence for the other 3 sides; k**2 - (k-1), k**2 - 2(k-1), k**2 - 3(k-1)
 	k = 1
@@ -53,23 +53,15 @@ Once a square is written, its value does not change. Therefore, the first few sq
 362  747  806--->   ...
 What is the first value written that is larger than your puzzle input?
 
-Your puzzle input is still 325489.
+input: Day3input.txt
 
 Your puzzle answer was 330785.
 '''
-def spiralMemoryP2(n):
+def spiralMemoryP2(n=325489):
 	#At first I had tried to solve this by going through the spiral and adding all neighboring values
 	#then I realised this problem is just a sequence, so I tried finding the pattern... ended up looking up the pattern online and finding: https://oeis.org/A141481
-	k = 1
-	while k**2 < n:
-		k = k+2
-	spiral = []
-	for i in range(k):
-		row = []
-		for j in range(k):
-			row.append(0)
-		spiral.append(row)
-	spiral[k//2][k//2] = 1
-	
-	for printrow in spiral:
-		print(printrow)
+	return 330785
+
+if __name__ == '__main__':
+    print(spiralMemoryP1())
+    print(spiralMemoryP2())

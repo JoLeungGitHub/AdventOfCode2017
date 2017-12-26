@@ -1,5 +1,3 @@
-import re
-
 '''
 --- Day 6: Memory Reallocation ---
 
@@ -23,32 +21,31 @@ At this point, we've reached a state we've seen before: 2 4 1 2 was already seen
 
 Given the initial block counts in your puzzle input, how many redistribution cycles must be completed before a configuration is produced that has been seen before?
 
-input:
-4	10	4	1	8	4	9	14	5	1	14	15	0	15	3	5
+input: Day6input.txt
 
 Your puzzle answer was 12841.
 '''
-def memoryReallocationP1(n):
+def memoryReallocationP1():
+	file = open("Day6input.txt", "r")
+	for line in file:
+		n = line.strip("\n")
+
 	seen = []
 	cycle = 0
-	banks = re.split(r'\t+', n)
-	j = 0
-	while j < len(banks):
-		banks[j] = int(banks[j])
-		j += 1
+	banks = n.split()
+	banks = [int(x) for x in banks]
+
 	while (banks not in seen):
 		seen.append(banks[:])
 		chosen = banks.index(max(banks))
 		amount = banks[chosen]
 		banks[chosen] = 0
 		i = chosen + 1
-		if i == len(banks):
-			i = 0
 		while amount > 0:
-			banks[i] += 1
-			i += 1
 			if i == len(banks):
 				i = 0
+			banks[i] += 1
+			i += 1
 			amount -= 1
 		cycle += 1
 	return cycle
@@ -62,36 +59,35 @@ In the example above, 2 4 1 2 is seen again after four cycles, and so the answer
 
 How many cycles are in the infinite loop that arises from the configuration in your puzzle input?
 
-input:
-4	10	4	1	8	4	9	14	5	1	14	15	0	15	3	5
+input: Day6input.txt
 
 Your puzzle answer was 8038.
 '''
-def memoryReallocationP2(n):
+def memoryReallocationP2():
+	file = open("Day6input.txt", "r")
+	for line in file:
+		n = line.strip("\n")
+
 	seen = []
 	cycle = 0
-	banks = re.split(r'\t+', n)
-	j = 0
-	while j < len(banks):
-		banks[j] = int(banks[j])
-		j += 1
+	banks = n.split()
+	banks = [int(x) for x in banks]
+	
 	while (banks not in seen):
 		seen.append(banks[:])
 		chosen = banks.index(max(banks))
 		amount = banks[chosen]
 		banks[chosen] = 0
 		i = chosen + 1
-		if i == len(banks):
-			i = 0
 		while amount > 0:
-			banks[i] += 1
-			i += 1
 			if i == len(banks):
 				i = 0
+			banks[i] += 1
+			i += 1
 			amount -= 1
 		cycle += 1
 	return cycle - seen.index(banks)
 
 if __name__ == '__main__':
-    print(memoryReallocationP1("4	10	4	1	8	4	9	14	5	1	14	15	0	15	3	5"))
-    print(memoryReallocationP2("4	10	4	1	8	4	9	14	5	1	14	15	0	15	3	5"))
+    print(memoryReallocationP1())
+    print(memoryReallocationP2())

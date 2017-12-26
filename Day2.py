@@ -1,5 +1,3 @@
-import re
-
 '''
 --- Day 2: Corruption Checksum ---
 
@@ -31,11 +29,9 @@ def corruptionChecksumP1():
 
 	checksum = 0
 	for line in filearray:
-		row = re.split(r'\t+', line)
-		introw = []
-		for val in row:
-			introw.append(int(val))
-		checksum = checksum + (max(introw) - min(introw))
+		row = line.split()
+		introw = [int(x) for x in row]
+		checksum += (max(introw) - min(introw))
 	return checksum
 
 '''
@@ -71,14 +67,16 @@ def corruptionChecksumP2():
 
 	checksum = 0
 	for line in filearray:
-		row = re.split(r'\t+', line)
-		introw = []
-		for val in row:
-			introw.append(int(val))
+		row = line.split()
+		introw = [int(x) for x in row]
 		for i in introw:
 			for j in introw:
 				if i != j:
 					if i % j == 0:
 						added = max(i//j, j//i)
-						checksum = checksum + added
+						checksum += added
 	return checksum
+
+if __name__ == '__main__':
+    print(corruptionChecksumP1())
+    print(corruptionChecksumP2())

@@ -78,6 +78,8 @@ def likeRegistersP2():
 					largest = registers[name]
 	return largest
 
+#-------------------------------------------------------------------#
+
 def isCondition(registers, condition):
 	name = condition[:condition.find(" ")]
 	op = condition[condition.find(" ")+1:condition.find(" ", condition.find(" ")+1)]

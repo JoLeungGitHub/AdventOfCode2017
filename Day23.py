@@ -53,14 +53,6 @@ def coprocessorConflagrationP1():
 		index += 1
 	return amount
 
-def not_prime(n):
-	i = 2
-	while i * i <= n:
-		if n % i == 0:
-			return True
-		i += 1
-	return False
-
 '''
 --- Part Two ---
 Now, it's time to fix the problem.
@@ -88,6 +80,15 @@ def coprocessorConflagrationP2():
 		if b == c:
 			return h;
 		b += 17
+
+#-------------------------------------------------------------------#
+def not_prime(n):
+	i = 2
+	while i * i <= n:
+		if n % i == 0:
+			return True
+		i += 1
+	return False
 
 if __name__ == '__main__':
     print(coprocessorConflagrationP1())

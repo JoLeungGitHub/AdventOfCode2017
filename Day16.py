@@ -41,20 +41,6 @@ def permutationPromenade1():
 			programs[one], programs[two] = programs[two], programs[one]
 	return "".join(programs)
 
-def oneCycle(n, m):
-	programs = n
-	for move in m:
-		if move[0] == "s":
-			for i in range(int(move[1:])):
-				programs.insert(0, programs.pop())
-		elif move[0] == "x":
-			programs[int(move[1:move.find("/")])], programs[int(move[move.find("/")+1:])] = programs[int(move[move.find("/")+1:])], programs[int(move[1:move.find("/")])]
-		elif move[0] == "p":
-			one = programs.index(move[1:move.find("/")])
-			two = programs.index(move[move.find("/")+1:])
-			programs[one], programs[two] = programs[two], programs[one]
-	return programs
-
 '''
 --- Part Two ---
 Now that you're starting to get a feel for the dance moves, you turn your attention to the dance as a whole.
@@ -86,6 +72,21 @@ def permutationPromenadeP2():
 			return "".join(cycles[(1000000000 % len(cycles))-1]) #-1 to take into account the first cycle that was already added.
 		cycles.append(programs[:])
 	return "".join(programs)
+
+#-------------------------------------------------------------------#
+def oneCycle(n, m):
+	programs = n
+	for move in m:
+		if move[0] == "s":
+			for i in range(int(move[1:])):
+				programs.insert(0, programs.pop())
+		elif move[0] == "x":
+			programs[int(move[1:move.find("/")])], programs[int(move[move.find("/")+1:])] = programs[int(move[move.find("/")+1:])], programs[int(move[1:move.find("/")])]
+		elif move[0] == "p":
+			one = programs.index(move[1:move.find("/")])
+			two = programs.index(move[move.find("/")+1:])
+			programs[one], programs[two] = programs[two], programs[one]
+	return programs
 
 if __name__ == '__main__':
     print(permutationPromenadeP1())

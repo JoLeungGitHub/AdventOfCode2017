@@ -40,10 +40,12 @@ input: 70,66,255,2,48,0,54,48,80,141,244,254,160,108,1,41
 
 Your puzzle answer was 7888.
 '''
-def knotHashP1(n):
-	t = []
-	for i in range(256):
-		t.append(i)
+def knotHashP1():
+	file = open("Day10input.txt", "r")
+	for line in file:
+		n = line.strip("\n").split(",")
+	n = [int(x) for x in n]
+	t = [x for x in range(256)]
 
 	skip = 0
 	index = 0
@@ -70,7 +72,7 @@ def knotHashP1(n):
 				index = 0
 			posforward -= 1
 		skip += 1
-	return t
+	return t[0] * t[1]
 
 '''
 --- Part Two ---
@@ -105,15 +107,16 @@ input:
 
 Your puzzle answer was decdf7d377879877173b7f2fb131cf1b.
 '''
-def knotHashP2(n):
+def knotHashP2():
+	file = open("Day10input.txt", "r")
+	for line in file:
+		n = line.strip("\n")
+	t = [x for x in range(256)]
+
 	asciiInput = []
 	for ch in n:
 		asciiInput.append(ord(ch))
 	asciiInput = asciiInput + [17, 31, 73, 47, 23]
-
-	t = []
-	for i in range(256):
-		t.append(i)
 
 	skip = 0
 	index = 0
@@ -159,10 +162,10 @@ def knotHashP2(n):
 		add = hex(element)[2:]
 		if len(add) < 2:
 			add = "0" + add
-		returned = returned + add
+		returned += add
 
 	return returned
 
 if __name__ == '__main__':
-    print(knotHashP1([70,66,255,2,48,0,54,48,80,141,244,254,160,108,1,41]))
-    print(knotHashP2("70,66,255,2,48,0,54,48,80,141,244,254,160,108,1,41"))
+    print(knotHashP1())
+    print(knotHashP2())

@@ -29,7 +29,7 @@ Perhaps, if you can identify the value that will ultimately be after the last va
 
 What is the value after 2017 in your completed circular buffer?
 
-Your puzzle input was 324.
+input: Day17input.txt
 
 Your puzzle answer was 1306.
 '''
@@ -54,7 +54,7 @@ The bad news is that while you were determining this, the spinlock has just fini
 
 What is the value after 0 the moment 50000000 is inserted?
 
-Your puzzle input was 324.
+input: Day17input.txt
 
 Your puzzle answer was 20430489.
 '''
@@ -66,7 +66,6 @@ def spinlockP2():
 		pos = (pos + 324) % size
 		if pos == 0:
 			after = add
-			print(after)
 		size += 1
 		pos += 1
 	return after

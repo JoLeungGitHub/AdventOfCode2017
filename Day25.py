@@ -77,6 +77,7 @@ def P1():
 				l[index] = 0
 				index -= 1
 				state = "B"
+
 		elif state == "B":
 			if l[index] == 0:
 				l[index] = 0
@@ -86,6 +87,7 @@ def P1():
 				l[index] = 1
 				index -= 1
 				state = "B"
+
 		elif state == "C":
 			if l[index] == 0:
 				l[index] = 1
@@ -95,6 +97,7 @@ def P1():
 				l[index] = 0
 				index -= 1
 				state = "A"
+
 		elif state == "D":
 			if l[index] == 0:
 				l[index] = 1
@@ -104,6 +107,7 @@ def P1():
 				l[index] = 1
 				index -= 1
 				state = "F"
+
 		elif state == "E":
 			if l[index] == 0:
 				l[index] = 1
@@ -113,6 +117,7 @@ def P1():
 				l[index] = 0
 				index -= 1
 				state = "D"
+
 		elif state == "F":
 			if l[index] == 0:
 				l[index] = 1
@@ -150,4 +155,4 @@ def P2():
 
 if __name__ == '__main__':
     print(P1())
-    print(P2())
+    #print(P2()) no Part 2 on Day 25

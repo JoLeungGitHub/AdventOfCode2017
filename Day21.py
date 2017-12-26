@@ -159,6 +159,21 @@ def fractalArtP1():
 
 	return amount
 
+
+
+'''
+--- Part Two ---
+How many pixels stay on after 18 iterations?
+
+input: Day21input.txt
+
+Your puzzle answer was 1879071.
+'''
+def fractalArtP2():
+	
+	return 
+
+#-------------------------------------------------------------------#
 def rotate(box):
 	returned = []
 	for y in range(len(box)):
@@ -174,18 +189,6 @@ def mirror(box):
 		returned.append(l[::-1])
 	return returned
 
-'''
---- Part Two ---
-How many pixels stay on after 18 iterations?
-
-input: Day21input.txt
-
-Your puzzle answer was 1879071.
-'''
-def fractalArtP2():
-	
-	return 
-
 if __name__ == '__main__':
-    print(fractalArtP1())
-    print(fractalArtP2())
+    #print(fractalArtP1()) Part 1 is incomplete
+    #print(fractalArtP2()) Part 2 is Part 1, 18 times

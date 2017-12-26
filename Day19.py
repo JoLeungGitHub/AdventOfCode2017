@@ -32,6 +32,7 @@ def P1():
 	file = open("Day19input.txt", "r")
 	for line in file:
 		maze.append(line.strip("\n"))
+
 	x = 75
 	y = 0
 	word = ""
@@ -101,6 +102,7 @@ def P2():
 	file = open("Day19input.txt", "r")
 	for line in file:
 		maze.append(line.strip("\n"))
+
 	x = 75
 	y = 0
 	steps = 0
